@@ -1,2 +1,17 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<h1>Alterei o layout da home</h1>
+
+<% if user_signed_in?  %>
+
+  Current user: <%= current_user.name %>
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
+  class: "btn btn-link" %>
+
+<% else %>
+  <%= link_to 'Log in', new_user_session_path, class: 'btn btn-link' %>
+<% end %>
+
+
+<%= link_to 'my orders', orders_path %>
